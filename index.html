@@ -292,73 +292,249 @@
     <div class="container">
         <div class="section-label"><span class="mono">03 /</span> Projets</div>
         <h2 class="section-title">Ce que j'ai <em>construit</em></h2>
-        <p class="section-sub">Des projets concrets, des vraies données, de vrais résultats.</p>
-
-        <div class="projects-grid">
-
-            <div class="project-card featured">
-                <div class="proj-badge">Stage · Ministère de la Justice</div>
-                <div class="proj-top">
-                    <div class="proj-icon-lg"><i class="fas fa-balance-scale"></i></div>
-                    <div class="proj-tech-stack">
-                        <span>SAP BI</span><span>SQL</span><span>Datawarehouse</span>
-                    </div>
-                </div>
-                <h3 class="proj-title">Analyse de données judiciaires</h3>
-                <p class="proj-desc">Exploitation statistique de données judiciaires réelles : construction de requêtes SQL complexes, intégration dans un datawarehouse, et création de graphiques interactifs sous SAP BI pour le reporting ministériel.</p>
-                <div class="proj-outcomes">
-                    <div class="outcome"><i class="fas fa-check"></i> Reporting interactif sous SAP BI</div>
-                    <div class="outcome"><i class="fas fa-check"></i> Intégration datawarehouse</div>
-                    <div class="outcome"><i class="fas fa-check"></i> Modélisation de schémas de données</div>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="proj-badge">Projet académique</div>
-                <div class="proj-top">
-                    <div class="proj-icon-lg"><i class="fas fa-database"></i></div>
-                    <div class="proj-tech-stack">
-                        <span>SQL</span><span>Access</span><span>QBE</span><span>Excel</span>
-                    </div>
-                </div>
-                <h3 class="proj-title">Analyse & exploitation BDD</h3>
-                <p class="proj-desc">Étude complète d'une base de données : identification des clés primaires/étrangères, requêtes SQL avancées (jointures, agrégations, sous-requêtes), calcul de KPIs : CA par catégorie, analyse géographique des fournisseurs, détection de clients inactifs.</p>
-                <div class="proj-outcomes">
-                    <div class="outcome"><i class="fas fa-check"></i> Requêtes SQL avancées</div>
-                </div>
-            </div>
-
-       
-            <div class="project-card">
-                <div class="proj-badge">Portfolio web</div>
-                <div class="proj-top">
-                    <div class="proj-icon-lg"><i class="fas fa-globe"></i></div>
-                    <div class="proj-tech-stack">
-                        <span>HTML5</span><span>CSS3</span><span>JavaScript</span>
-                    </div>
-                </div>
-                <h3 class="proj-title">Ce portfolio</h3>
-                <p class="proj-desc">Conception et développement d'un portfolio data-driven, responsive et optimisé. Design dark mode, animations CSS, canvas interactif et structure pensée pour les recruteurs. Parce qu'un bon data analyst sait aussi se vendre. 📊</p>
-                <div class="proj-outcomes">
-                    <div class="outcome"><i class="fas fa-check"></i> Design custom dark mode</div>
-                    <div class="outcome"><i class="fas fa-check"></i> 100% responsive</div>
-                </div>
-                <a href="https://github.com/ribeiro-angela" target="_blank" class="proj-link">
-                    <i class="fab fa-github"></i> GitHub
-                </a>
-            </div>
-
+        <p class="section-sub">Des projets concrets, des vraies données, de vrais résultats — et quelques bugs assumés.</p>
+ 
+        <!-- FILTER BAR — survole pour la blague -->
+        <div class="proj-filter-bar">
+            <button class="pfbtn pf-active" data-filter="all"      data-joke="SELECT * FROM projects">Tous</button>
+            <button class="pfbtn"           data-filter="python"    data-joke="import antigravity 🐍">Python</button>
+            <button class="pfbtn"           data-filter="java"      data-joke="new NullPointerException()">Java</button>
+            <button class="pfbtn"           data-filter="data"      data-joke="WHERE chaos IS NULL">Data / SQL</button>
+            <button class="pfbtn"           data-filter="web"       data-joke="z-index: 9999999">Web</button>
+            <button class="pfbtn"           data-filter="reseau"    data-joke="ping localhost -t ♾">Réseau</button>
+            <button class="pfbtn"           data-filter="c"         data-joke="segfault (core dumped)">C</button>
+            <button class="pfbtn"           data-filter="systemes"  data-joke="sudo make me a sandwich">Systèmes</button>
         </div>
-
-        <!-- Suggested projects callout -->
+ 
+        <!-- MASONRY GRID -->
+        <div class="proj-masonry" id="projMasonry">
+ 
+            <!-- ★ FEATURED : Stage Ministère -->
+            <div class="pcard pcard-featured" data-cat="data">
+                <span class="pcard-accent data"></span>
+                <div class="pcard-inner">
+                    <div class="pcard-crown">★ featured</div>
+                    <div class="pcard-header">
+                        <span class="pcard-badge">Stage · Ministère de la Justice</span>
+                        <span class="pcard-icon">⚖️</span>
+                    </div>
+                    <h3 class="pcard-title">Analyse de données judiciaires</h3>
+                    <p class="pcard-desc">Exploitation statistique de données judiciaires réelles — requêtes SQL complexes, intégration datawarehouse, reportings interactifs sous SAP BI pour le ministère.</p>
+                    <div class="pcard-tech">
+                        <span class="ptag">SAP BI</span><span class="ptag">SQL</span>
+                        <span class="ptag">Datawarehouse</span><span class="ptag">MCD/MLD</span>
+                    </div>
+                    <div class="pcard-joke"><span class="joke-prefix">// </span>La seule fois où j'ai accédé à des données réelles sans signer 47 NDAs.</div>
+                </div>
+            </div>
+ 
+            <!-- BDD académique -->
+            <div class="pcard" data-cat="data">
+                <span class="pcard-accent data"></span>
+                <div class="pcard-inner">
+                    <div class="pcard-header">
+                        <span class="pcard-badge">Projet académique</span>
+                        <span class="pcard-icon">🗄️</span>
+                    </div>
+                    <h3 class="pcard-title">Analyse & exploitation BDD</h3>
+                    <p class="pcard-desc">Étude complète : clés primaires/étrangères, jointures, agrégations, sous-requêtes. KPIs : CA par catégorie, géo fournisseurs, clients inactifs.</p>
+                    <div class="pcard-tech">
+                        <span class="ptag">SQL</span><span class="ptag">Access</span>
+                        <span class="ptag">QBE</span><span class="ptag">Excel</span>
+                    </div>
+                    <div class="pcard-joke"><span class="joke-prefix">/* </span>GROUP BY everything, just in case. */</div>
+                </div>
+            </div>
+ 
+            <!-- Portfolio web -->
+            <div class="pcard" data-cat="web">
+                <span class="pcard-accent web"></span>
+                <div class="pcard-inner">
+                    <div class="pcard-header">
+                        <span class="pcard-badge">Portfolio web</span>
+                        <span class="pcard-icon">🌐</span>
+                    </div>
+                    <h3 class="pcard-title">Ce portfolio</h3>
+                    <p class="pcard-desc">Dark mode, canvas interactif, animations CSS et easter egg Konami. Parce qu'un bon data analyst sait aussi se vendre. 📊</p>
+                    <div class="pcard-tech">
+                        <span class="ptag">HTML5</span><span class="ptag">CSS3</span><span class="ptag">JavaScript</span>
+                    </div>
+                    <div class="pcard-joke"><span class="joke-prefix">// </span>Il a un Konami code. Essayez. ↑↑↓↓←→←→BA</div>
+                    <a href="https://github.com/ribeiro-angela" target="_blank" class="pcard-link">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+            </div>
+ 
+            <!-- Count Click Python -->
+            <div class="pcard" data-cat="python">
+                <span class="pcard-accent python"></span>
+                <div class="pcard-inner">
+                    <div class="pcard-header">
+                        <span class="pcard-badge">Python · Pygame</span>
+                        <span class="pcard-icon">🎮</span>
+                    </div>
+                    <h3 class="pcard-title">Count Click — Mon premier jeu</h3>
+                    <p class="pcard-desc">Cliquez sur des points en mouvement dans un temps limité. 3 niveaux, bonus/malus, scores en CSV. Simple, mais addictif.</p>
+                    <div class="pcard-tech">
+                        <span class="ptag">Python</span><span class="ptag">Pygame</span><span class="ptag">CSV</span>
+                    </div>
+                    <div class="pcard-joke"><span class="joke-prefix">&gt;&gt;&gt; </span>while not sleeping: click()</div>
+                </div>
+            </div>
+ 
+            <!-- Parashop Java -->
+            <div class="pcard" data-cat="java">
+                <span class="pcard-accent java"></span>
+                <div class="pcard-inner">
+                    <div class="pcard-header">
+                        <span class="pcard-badge">Java · Entreprise</span>
+                        <span class="pcard-icon">👔</span>
+                    </div>
+                    <h3 class="pcard-title">Optimisation recrutement Parashop</h3>
+                    <p class="pcard-desc">Solution digitale pour optimiser le processus de recrutement avec tableau de bord analytique. HR meets code.</p>
+                    <div class="pcard-tech">
+                        <span class="ptag">Java</span><span class="ptag">Dashboard</span>
+                    </div>
+                    <div class="pcard-joke"><span class="joke-prefix">// </span>new HRSystem() throws TooManyInterviewsException</div>
+                </div>
+            </div>
+ 
+            <!-- RPG JavaFX -->
+            <div class="pcard" data-cat="java">
+                <span class="pcard-accent java"></span>
+                <div class="pcard-inner">
+                    <div class="pcard-header">
+                        <span class="pcard-badge">JavaFX · SQLite</span>
+                        <span class="pcard-icon">🐉</span>
+                    </div>
+                    <h3 class="pcard-title">RPG Database Adventure</h3>
+                    <p class="pcard-desc">Jeu RPG en JavaFX avec BDD SQLite et interface dynamique. Les boss finaux sont des clés étrangères non indexées.</p>
+                    <div class="pcard-tech">
+                        <span class="ptag">JavaFX</span><span class="ptag">SQLite</span><span class="ptag">UI/UX</span>
+                    </div>
+                    <div class="pcard-joke"><span class="joke-prefix">-- </span>SELECT * FROM boss WHERE defeated = false → 0 rows. 🎉</div>
+                </div>
+            </div>
+ 
+            <!-- Données éducatives -->
+            <div class="pcard" data-cat="data">
+                <span class="pcard-accent data"></span>
+                <div class="pcard-inner">
+                    <div class="pcard-header">
+                        <span class="pcard-badge">Data · ML</span>
+                        <span class="pcard-icon">📊</span>
+                    </div>
+                    <h3 class="pcard-title">Analyse de données éducatives</h3>
+                    <p class="pcard-desc">Visualisations interactives et prédictions ML sur données éducatives. Pandas, Matplotlib, et beaucoup de café.</p>
+                    <div class="pcard-tech">
+                        <span class="ptag">Python</span><span class="ptag">Pandas</span>
+                        <span class="ptag">Matplotlib</span><span class="ptag">ML</span>
+                    </div>
+                    <div class="pcard-joke"><span class="joke-prefix">// </span>accuracy = 0.42 — Encore mieux que la moyenne de classe.</div>
+                </div>
+            </div>
+ 
+            <!-- Réseau Cisco -->
+            <div class="pcard" data-cat="reseau">
+                <span class="pcard-accent reseau"></span>
+                <div class="pcard-inner">
+                    <div class="pcard-header">
+                        <span class="pcard-badge">Réseau · Cisco</span>
+                        <span class="pcard-icon">🔌</span>
+                    </div>
+                    <h3 class="pcard-title">Simulation réseaux Cisco Packet Tracer</h3>
+                    <p class="pcard-desc">Infrastructure complète simulée : TCP/IP, DHCP, routage. Quand configurer un switch devient de la méditation.</p>
+                    <div class="pcard-tech">
+                        <span class="ptag">Cisco Packet Tracer</span>
+                        <span class="ptag">TCP/IP</span><span class="ptag">DHCP</span>
+                    </div>
+                    <div class="pcard-joke"><span class="joke-prefix">$ </span>ping 8.8.8.8 — Request timeout for icmp_seq 0</div>
+                </div>
+            </div>
+ 
+            <!-- Dijkstra Java -->
+            <div class="pcard" data-cat="java">
+                <span class="pcard-accent java"></span>
+                <div class="pcard-inner">
+                    <div class="pcard-header">
+                        <span class="pcard-badge">Algorithmique</span>
+                        <span class="pcard-icon">🗺️</span>
+                    </div>
+                    <h3 class="pcard-title">Dijkstra dans un labyrinthe</h3>
+                    <p class="pcard-desc">Représentation de graphes et plus court chemin avec Dijkstra en Java. Spoiler : le chemin le plus court c'est de tout bien nommer dès le début.</p>
+                    <div class="pcard-tech">
+                        <span class="ptag">Java</span><span class="ptag">Graphes</span><span class="ptag">Dijkstra</span>
+                    </div>
+                    <div class="pcard-joke"><span class="joke-prefix">// </span>O(V log V) — Pas comme mon ex, qui était O(n²).</div>
+                </div>
+            </div>
+ 
+            <!-- Octo Verso C -->
+            <div class="pcard" data-cat="c">
+                <span class="pcard-accent c"></span>
+                <div class="pcard-inner">
+                    <div class="pcard-header">
+                        <span class="pcard-badge">Langage C</span>
+                        <span class="pcard-icon">🐙</span>
+                    </div>
+                    <h3 class="pcard-title">Octo Verso en C</h3>
+                    <p class="pcard-desc">Programmation bas niveau en C. Gestion mémoire manuelle, pointeurs, et plusieurs heures de debugging existentiel.</p>
+                    <div class="pcard-tech">
+                        <span class="ptag">C</span><span class="ptag">Pointeurs</span><span class="ptag">Structures</span>
+                    </div>
+                    <div class="pcard-joke"><span class="joke-prefix">// </span>free(sanity); → Segmentation fault (core dumped)</div>
+                </div>
+            </div>
+ 
+            <!-- Création BDD SQL -->
+            <div class="pcard" data-cat="data">
+                <span class="pcard-accent data"></span>
+                <div class="pcard-inner">
+                    <div class="pcard-header">
+                        <span class="pcard-badge">SQL · MySQL</span>
+                        <span class="pcard-icon">💾</span>
+                    </div>
+                    <h3 class="pcard-title">Création d'une base de données</h3>
+                    <p class="pcard-desc">Conception complète d'une BDD relationnelle — modélisation MCD/MLD, contraintes d'intégrité, requêtes qui tournent du premier coup.</p>
+                    <div class="pcard-tech">
+                        <span class="ptag">SQL</span><span class="ptag">MySQL</span><span class="ptag">MCD/MLD</span>
+                    </div>
+                    <div class="pcard-joke"><span class="joke-prefix">-- </span>DROP TABLE fears; — 1 row affected. ✓</div>
+                </div>
+            </div>
+ 
+            <!-- Machine Virtuelle -->
+            <div class="pcard" data-cat="systemes">
+                <span class="pcard-accent systemes"></span>
+                <div class="pcard-inner">
+                    <div class="pcard-header">
+                        <span class="pcard-badge">Systèmes</span>
+                        <span class="pcard-icon">🖥️</span>
+                    </div>
+                    <h3 class="pcard-title">Configuration machine virtuelle</h3>
+                    <p class="pcard-desc">Mise en place d'une VM complète. Se familiariser avec la virtualisation et la gestion de systèmes sans casser son propre laptop.</p>
+                    <div class="pcard-tech">
+                        <span class="ptag">Virtualisation</span><span class="ptag">VirtualBox</span><span class="ptag">Linux</span>
+                    </div>
+                    <div class="pcard-joke"><span class="joke-prefix">$ </span>sudo apt-get install wisdom — Package not found</div>
+                </div>
+            </div>
+ 
+        </div><!-- /proj-masonry -->
+ 
+        <!-- Coming soon -->
         <div class="projects-coming">
             <div class="coming-icon"><i class="fas fa-flask"></i></div>
             <div class="coming-text">
                 <strong>Prochains projets :</strong> Dashboard Power BI open data · Analyse de sentiments NLP · Pipeline ETL Python · Visualisation Plotly
+                <span class="coming-code">// TODO: sleep() avant de commit</span>
             </div>
         </div>
+ 
     </div>
 </section>
+      
 
 <!-- CONTACT -->
 <section id="contact" class="section section-dark">
