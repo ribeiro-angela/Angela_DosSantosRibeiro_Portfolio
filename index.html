@@ -906,6 +906,21 @@ document.addEventListener('keydown', e => {
         }
     } else { ki = 0; }
 });
+    (function() {
+    const btns  = document.querySelectorAll('.pfbtn');
+    const cards = document.querySelectorAll('#projMasonry .pcard');
+ 
+    btns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            btns.forEach(b => b.classList.remove('pf-active'));
+            btn.classList.add('pf-active');
+            const f = btn.dataset.filter;
+            cards.forEach(c => {
+                c.style.display = (f === 'all' || c.dataset.cat === f) ? '' : 'none';
+            });
+        });
+    });
+})();
 </script>
 </body>
 </html>
