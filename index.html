@@ -782,14 +782,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     });
 });
 
-// ── SCROLL REVEAL ─────────────────────────────────────────────────────────────
-const revealObserver = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in-view'); }});
-}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-document.querySelectorAll('.project-card, .skill-category, .acard, .contact-link, .bar-row').forEach(el => {
-    el.classList.add('reveal');
-    revealObserver.observe(el);
-});
+
 
 // ── CONTACT FORM ─────────────────────────────────────────────────────────────
 (function() {
@@ -888,8 +881,14 @@ document.querySelectorAll('.project-card, .skill-category, .acard, .contact-link
         successDiv.style.display = 'none';
         formDiv.style.display = 'block';
     });
-})();
-
+})();// ── SCROLL REVEAL ─────────────────────────────────────────────────────────────
+const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in-view'); }});
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+document.querySelectorAll('.project-card, .pcard, .skill-category, .acard, .contact-link, .bar-row').forEach(el => {
+    el.classList.add('reveal');
+    revealObserver.observe(el);
+});
 // ── EASTER EGG (Konami) ──────────────────────────────────────────────────────
 const konami = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
 let ki = 0;
